@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+version = "0.0.1"
+group = "caion.pixelmonranks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "NanChan[难产]"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+minecraft {
+    version = "1.12.2-14.23.0.2491"
+    runDir = "run"
+    mappings = "snapshot_20170624"
+}
+
+dependencies {
+    compile files("../../libs/poke8.1.2.jar")
+    compile files("../../libs/sponge7.1.jar")
+
+    processResources {
+
+    }
+}
